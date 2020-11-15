@@ -1,11 +1,11 @@
 {{extend './common/layout.art'}}
 
 {{block 'main'}}
-    {{include './common/header.art}}
+    {{include './common/header.art'}}
 
     <!-- 主体内容 -->
     <div class="content">
-    {{include './common/aside.art}}
+    {{include './common/aside.art'}}
 
         <!-- 侧边栏 -->
         <div class="main">

@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    {{block 'main}} {{/block}}
+    {{block 'main'}} {{/block}}
     <script src="/admin/lib/jquery/dist/jquery.min.js"></script>
     <script src="/admin/lib/bootstrap/js/bootstrap.min.js"></script>
     {{block 'script'}} {{/block}}
