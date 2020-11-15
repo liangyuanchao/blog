@@ -1,11 +1,14 @@
 const Express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 const {adminRouter,homeRouter} = require('./router')
 
 const app = new Express();
 
 require('./model/connect');
 require('./model/user');
+// 处理post请求参数
+app.use(bodyParser.urlencoded({extended: false}))
 
 // 告诉express框架模板所在的位置
 app.set('views', path.join(__dirname, 'views'))
