@@ -4,6 +4,9 @@ const {adminRouter,homeRouter} = require('./router')
 
 const app = new Express();
 
+require('./model/connect');
+require('./model/user');
+
 // 告诉express框架模板所在的位置
 app.set('views', path.join(__dirname, 'views'))
 // 告诉express框架模板的默认后缀时什么
