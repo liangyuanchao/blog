@@ -14,4 +14,12 @@ admin.get('/user', require('./admin/userPage'))
 // 退出功能
 admin.get('/logout', require('./admin/logout'))
 
+// 创建用户页面路由
+admin.get('/user-edit', require('./admin/user-edit'))
+
+// 创建用户表单提交
+admin.post('/user-edit', require('./admin/user-edit-fn'))
+
+
+
 module.exports = admin;
