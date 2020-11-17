@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const bcrypt = require('bcrypt');
 
 // 创建集合规则
 const userSchema = new mongoose.Schema({
@@ -31,14 +32,20 @@ const userSchema = new mongoose.Schema({
 // 使用集合创建集合
 const User =  mongoose.model('User', userSchema);
 
-// 测试代码
-// User.create({
-//     username: 'itheima',
-//     email: 'itheima@itcast.cn',
-//     password: '123456',
-//     role: 'admin',
-//     state: 0
-// }).then(()=>console.log('用户创建成功')).catch(err=>console.log(err, '用户创建失败'))
+async function createUser() {
+    const salt = await bcrypt.genSalt(10);
+    const pass = await bcrypt.hash('123456', salt);
+    const user = await User.create({
+        username: 'itheima',
+        email: 'lyc@itcast.cn',
+        password: pass,
+        role: 'admin',
+        state: 0
+    })
+}
+
+// createUser();
+
 
 module.exports = {
     User
