@@ -25,15 +25,7 @@ app.engine('art', require('express-art-template'));
 app.use(Express.static(path.join(__dirname, 'static')));
 
 // 登录拦截
-app.use('/admin', (req, res, next) => {
-    // 判断用户是否登录
-    if(req.url != '/login' && !req.session.username) {
-        res.redirect('/admin/login');
-    }else{
-        // 用户登录状态，将请求放行
-        next();
-    }
-})
+app.use('/admin',require('./middleware/loginGuard'))
 // 路由匹配路径
 app.use('/home', homeRouter);
 app.use('/admin', adminRouter);
